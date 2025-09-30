@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика CSS: Селекторы, каскад, наследование</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header id="site-header" class="main-header">
+        <h1 class="site-title">Кинотеатр "Россия"</h1>
+        <p class="site-description">Лучшие фильмы в городе</p>
+    </header>
+
+    <!-- Навигация -->
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#now-playing" class="nav-link active">Сейчас в кино</a></li>
+            <li class="nav-item"><a href="#soon" class="nav-link">Скоро</a></li>
+            <li class="nav-item important"><a href="#prices" class="nav-link">Цены</a></li>
+            <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="content">
+        <section id="now-playing" class="movie-section">
+            <h2 class="section-title">Сейчас в кино</h2>
+            
+            <article class="featured-post movie-card">
+                <header class="movie-header">
+                    <h3 class="movie-title">Дюна: Часть вторая</h3>
+                    <p class="movie-date">Премьера: <time datetime="2025-03-01">1 марта 2025</time></p>
+                </header>
+                <div class="movie-content">
+                    <p>Продолжение эпической саги о Пол Атрейдесе. Он объединяется с Чанни и фременами, чтобы отомстить заговорщикам.</p>
+                </div>
+                <footer class="movie-footer">
+                    <p>Режиссер: <span class="director">Дени Вильнёв</span></p>
+                    <p>Жанр: <span class="genre">Фантастика</span></p>
+                </footer>
+            </article>
+
+            <article class="movie-card">
+                <header class="movie-header">
+                    <h3 class="movie-title">Оппенгеймер</h3>
+                    <p class="movie-date">В прокате с: <time datetime="2023-07-21">21 июля 2025</time></p>
+                </header>
+                <div class="movie-content">
+                    <p>История жизни американского ученого Джулиуса Роберта Оппенгеймера и его роли в создании атомной бомбы.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="soon" class="movie-section">
+            <h2 class="section-title">Скоро на экранах</h2>
+            
+            <div class="coming-soon-list">
+                <article class="movie-card upcoming">
+                    <h3 class="movie-title">Годзилла и Конг: Новая империя</h3>
+                    <p class="movie-date">Премьера: <time datetime="2025-04-11">11 апреля 2025</time></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <div class="news-widget">
+                <h3 class="widget-title">Новости кино</h3>
+                <ul class="news-list">
+                    <li class="news-item">Утренние сеансы со скидкой 40%</li>
+                    <li class="news-item">Открытие нового зала "Премиум"</li>
+                    <li class="news-item important">Специальные показы для студентов</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Подвал -->
+    <footer id="site-footer" class="main-footer">
+        <address class="contact-info">
+            <p>Кинотеатр "Россия"</p>
+            <p>Адрес: г. Сургут, ул. Пушкина, д. 15</p>
+            <p>Телефон: <a href="tel:+74951234567" class="phone-link">+7 (495) 123-45-67</a></p>
+        </address>
+        <p class="copyright">&copy; 2025 Кинотеатр "Россия".</p>
+    </footer>
+</body>
+</html>

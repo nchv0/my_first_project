@@ -1,0 +1,267 @@
+/* CSS переменные */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --font-main: 'Arial', sans-serif;
+    --font-heading: 'Georgia', serif;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
+
+/* Базовые селекторы */
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    padding: var(--spacing-md);
+}
+
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.site-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.site-description {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Комбинированные селекторы */
+.main-nav .nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: 5px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.nav-item .nav-link {
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.nav-item .nav-link:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.nav-item .nav-link.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Дочерние селекторы */
+.content > .movie-section {
+    background-color: white;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.movie-header > .movie-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Каскад и специфичность */
+.movie-card {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: 3px;
+}
+
+.movie-card {
+    background-color: #f8f9fa;
+}
+
+.featured-post.movie-card {
+    background-color: #e3f2fd;
+    border-color: var(--secondary-color);
+}
+
+#now-playing .featured-post {
+    background-color: #fff3e0 !important;
+}
+
+/* Наследуемые свойства */
+.movie-section {
+    font-size: 16px;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.movie-content {
+    /* Наследует font-size, color, line-height от .movie-section */
+    margin: var(--spacing-md) 0;
+}
+
+.movie-footer {
+    /* Наследует font-size, color, line-height от .movie-section */
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-sm);
+}
+
+/* Псевдоклассы */
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+}
+
+.nav-item:first-child .nav-link {
+    font-weight: bold;
+}
+
+.nav-item:last-child .nav-link {
+    font-style: italic;
+}
+
+.news-item:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.news-item:nth-child(even) {
+    background-color: white;
+}
+
+.movie-card:target {
+    border: 2px solid var(--accent-color);
+    animation: highlight 2s ease-in-out;
+}
+
+/* Псевдоэлементы */
+.section-title::before {
+    content: "🎬 ";
+    margin-right: var(--spacing-sm);
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-top: var(--spacing-sm);
+}
+
+.movie-title::first-letter {
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+.copyright::before {
+    content: "© ";
+}
+
+/* Анимации */
+@keyframes highlight {
+    0% { background-color: #fff3e0; }
+    50% { background-color: #ffe0b2; }
+    100% { background-color: #fff3e0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.movie-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .main-nav .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .movie-section, .sidebar {
+        width: 100%;
+    }
+    
+    :root {
+        --spacing-lg: 1rem;
+        --spacing-md: 0.75rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .sidebar {
+        order: 2;
+    }
+    
+    .movie-section {
+        order: 1;
+    }
+}
+
+/* Использование currentColor */
+.phone-link {
+    color: var(--secondary-color);
+    border-bottom: 1px solid currentColor;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: var(--accent-color);
+    /* border-color наследует currentColor автоматически */
+}
+
+/* Дополнительные стили для демонстрации наследования */
+.director {
+    font-weight: bold;
+    color: inherit; /* Наследует цвет от родителя */
+}
+
+.genre {
+    font-style: italic;
+    color: inherit; /* Наследует цвет от родителя */
+}
+
+.important {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.upcoming {
+    opacity: 0.8;
+    border-style: dashed;
+}
